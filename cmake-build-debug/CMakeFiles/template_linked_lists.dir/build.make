@@ -79,29 +79,29 @@ CMakeFiles/template_linked_lists.dir/list.cpp.obj: CMakeFiles/template_linked_li
 CMakeFiles/template_linked_lists.dir/list.cpp.obj: CMakeFiles/template_linked_lists.dir/includes_CXX.rsp
 CMakeFiles/template_linked_lists.dir/list.cpp.obj: ../list.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\axaio\CLionProjects\template_linked_lists\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/template_linked_lists.dir/list.cpp.obj"
-	C:\PROGRA~2\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\template_linked_lists.dir\list.cpp.obj -c C:\Users\axaio\CLionProjects\template_linked_lists\list.cpp
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\template_linked_lists.dir\list.cpp.obj -c C:\Users\axaio\CLionProjects\template_linked_lists\list.cpp
 
 CMakeFiles/template_linked_lists.dir/list.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/template_linked_lists.dir/list.cpp.i"
-	C:\PROGRA~2\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\axaio\CLionProjects\template_linked_lists\list.cpp > CMakeFiles\template_linked_lists.dir\list.cpp.i
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\axaio\CLionProjects\template_linked_lists\list.cpp > CMakeFiles\template_linked_lists.dir\list.cpp.i
 
 CMakeFiles/template_linked_lists.dir/list.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/template_linked_lists.dir/list.cpp.s"
-	C:\PROGRA~2\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\axaio\CLionProjects\template_linked_lists\list.cpp -o CMakeFiles\template_linked_lists.dir\list.cpp.s
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\axaio\CLionProjects\template_linked_lists\list.cpp -o CMakeFiles\template_linked_lists.dir\list.cpp.s
 
 CMakeFiles/template_linked_lists.dir/main.cpp.obj: CMakeFiles/template_linked_lists.dir/flags.make
 CMakeFiles/template_linked_lists.dir/main.cpp.obj: CMakeFiles/template_linked_lists.dir/includes_CXX.rsp
 CMakeFiles/template_linked_lists.dir/main.cpp.obj: ../main.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\axaio\CLionProjects\template_linked_lists\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/template_linked_lists.dir/main.cpp.obj"
-	C:\PROGRA~2\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\template_linked_lists.dir\main.cpp.obj -c C:\Users\axaio\CLionProjects\template_linked_lists\main.cpp
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\template_linked_lists.dir\main.cpp.obj -c C:\Users\axaio\CLionProjects\template_linked_lists\main.cpp
 
 CMakeFiles/template_linked_lists.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/template_linked_lists.dir/main.cpp.i"
-	C:\PROGRA~2\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\axaio\CLionProjects\template_linked_lists\main.cpp > CMakeFiles\template_linked_lists.dir\main.cpp.i
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\axaio\CLionProjects\template_linked_lists\main.cpp > CMakeFiles\template_linked_lists.dir\main.cpp.i
 
 CMakeFiles/template_linked_lists.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/template_linked_lists.dir/main.cpp.s"
-	C:\PROGRA~2\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\axaio\CLionProjects\template_linked_lists\main.cpp -o CMakeFiles\template_linked_lists.dir\main.cpp.s
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\axaio\CLionProjects\template_linked_lists\main.cpp -o CMakeFiles\template_linked_lists.dir\main.cpp.s
 
 # Object files for target template_linked_lists
 template_linked_lists_OBJECTS = \

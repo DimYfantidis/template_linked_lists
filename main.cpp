@@ -15,7 +15,7 @@ int main() {
 
     cout << gang << endl << "(" << gang.getSize() << " elements)" << endl;
 
-    gang[3] = "Onoma #4";
+    gang[0] = "Nikos";
     cout << gang << endl << "(" << gang.getSize() << " elements)" << endl;
 
     gang.remove(gang[3]);
@@ -24,9 +24,16 @@ int main() {
     gang.add(1, "Dimitris");
     cout << gang << endl << "(" << gang.getSize() << " elements)" << endl;
 
-
     cout << endl;
 
+    list<string> triadi_gang(gang);
+    triadi_gang[1] = "Billy";
+    triadi_gang.remove(triadi_gang[2]);
+
+    cout << "Killkys gang: " << gang << endl
+         << "Triadi gang: " << triadi_gang << endl;
+
+    cout << endl;
 
     list<int> integers;
 
@@ -59,9 +66,6 @@ int main() {
         cin >> keep_adding;
     } while (keep_adding);
 
-    list<int> copy(integers);
-
-    cout << endl << "Copy of integer list: " << copy << endl;
 
     return 0;
 }
