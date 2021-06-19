@@ -15,7 +15,7 @@ int main() {
 
     cout << gang << endl << "(" << gang.numOfElements() << " elements)" << endl;
 
-    gang[3] = "Ena omorfo paidi";
+    gang[3] = "Onoma #4";
     cout << gang << endl << "(" << gang.numOfElements() << " elements)" << endl;
 
     gang.add(1, "Dimitris");

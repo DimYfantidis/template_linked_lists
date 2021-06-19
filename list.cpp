@@ -122,7 +122,8 @@ template <typename T>
 void list<T>::add(size_t i, T arg) {
     if (i >= total_elements) {
         cerr << "ERROR" << endl;
-        throw (range_error("Try using [void]pushBack(node<T> *, T &) method instead"));
+        throw (range_error("Position out of list's range. "
+                           "Try using [void]pushBack(node<T> *, T &) method instead"));
     }
     first = add(first, 0, i, arg);
 }
