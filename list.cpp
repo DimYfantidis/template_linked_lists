@@ -69,7 +69,6 @@ void list<T>::print(node<T> *N, ostream &output) const {
 template <typename T>
 node<T> * list<T>::returnElement(node <T> *N, size_t current, size_t &to_be_found) {
     if (to_be_found >= total_elements) {
-        cerr << "\nERROR!" << endl;
         throw (range_error("Access violation"));
     }
     if (current == to_be_found) {
@@ -121,7 +120,6 @@ size_t list<T>::numOfElements() const {
 template <typename T>
 void list<T>::add(size_t i, T arg) {
     if (i >= total_elements) {
-        cerr << "ERROR" << endl;
         throw (range_error("Position out of list's range. "
                            "Try using [void]pushBack(node<T> *, T &) method instead"));
     }

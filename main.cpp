@@ -27,26 +27,29 @@ int main() {
 
     list<int> integers;
 
-    int N, k;
-    cout << "How many integers: ";
-    cin >> N;
-
-    cout << "Input Values: ";
-    for (int i = 0; i < N; ++i) {
-        cin >> k;
+    int k;
+    cout << "Input Values (write \"stop\" to continue): ";
+    while (cin >> k) {
         integers.pushBack(k);
     }
+    cin.clear();
+    cin.ignore(1000,'\n');
 
     cout << endl << integers << endl << "(" << integers.numOfElements() << " elements)\n" << endl;
 
-    bool keep_adding = false;
+    int N;
+    int keep_adding;
     do {
         cout << "Select position to add integer: ";
         cin >> N;
         cout << "Value: ";
         cin >> k;
 
-        integers.add(N, k);
+        try {
+            integers.add(N, k);
+        } catch (...) {
+            cerr << "ERROR\nPosition index out of range" << endl;
+        }
 
         cout << endl << integers << endl << "(" << integers.numOfElements() << " elements)\n" << endl;
         cout << "Add more? (1: Yes, 0: No): ";
