@@ -18,7 +18,7 @@ int main() {
     gang[3] = "Onoma #4";
     cout << gang << endl << "(" << gang.getSize() << " elements)" << endl;
 
-    gang.remove("Onoma #4");
+    gang.remove(gang[3]);
     cout << gang << endl << "(" << gang.getSize() << " elements)" << endl;
 
     gang.add(1, "Dimitris");
@@ -59,6 +59,9 @@ int main() {
         cin >> keep_adding;
     } while (keep_adding);
 
+    list<int> copy(integers);
+
+    cout << endl << "Copy of integer list: " << copy << endl;
 
     return 0;
 }

@@ -31,10 +31,12 @@ private:
     void print(node<T> *N, ostream &) const;
 public:
     list();
+    list(list<T> &);
     ~list();
 
     size_t getSize() const;
 
+    void clear();
     void pushBack(T arg);
     void add(size_t, T);
     bool remove(T arg);

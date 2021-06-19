@@ -92,6 +92,26 @@ list<T>::~list() {
 }
 
 template <typename T>
+list<T>::list(list<T> &copy) {
+    size = 0;
+    first = nullptr;
+
+    for (size_t i = 0; i < copy.getSize(); ++i) {
+        this->pushBack(copy[i]);
+    }
+}
+
+template <typename T>
+size_t list<T>::getSize() const {
+    return size;
+}
+
+template <typename T>
+void list<T>::clear() {
+    first = destroyList(first);
+}
+
+template <typename T>
 void list<T>::pushBack(T arg) {
     first = pushBack(first, arg);
 }
@@ -110,11 +130,6 @@ void list<T>::print(ostream &output) const {
         print(first, output);
     }
     output << "]";
-}
-
-template <typename T>
-size_t list<T>::getSize() const {
-    return size;
 }
 
 template <typename T>
