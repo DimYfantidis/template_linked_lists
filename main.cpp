@@ -30,8 +30,8 @@ int main() {
     triadi_gang[1] = "Billy";
     triadi_gang.remove(triadi_gang[2]);
 
-    cout << "Killkys gang: " << gang << endl
-         << "Triadi gang: " << triadi_gang << endl;
+    cout << "Killkys gang: \t" << gang << endl
+         << "Triadi gang: \t" << triadi_gang << endl;
 
     cout << endl;
 
@@ -44,6 +44,11 @@ int main() {
     }
     cin.clear();
     cin.ignore(1000,'\n');
+
+    if (integers.getSize() == 0) {
+        cerr << "ERROR: Input at least one integer!" << endl;
+        exit(1);
+    }
 
     cout << endl << integers << endl << "(" << integers.getSize() << " elements)\n" << endl;
 
