@@ -107,7 +107,9 @@ bool list<T>::remove(T arg) {
 template <typename T>
 void list<T>::print(ostream &output) const {
     output << "[";
-    print(first, output);
+    if (first != nullptr) {
+        print(first, output);
+    }
     output << "]";
 }
 
