@@ -11,8 +11,8 @@ node<T> * list<T>::destroyList(node<T> *N) {
     if (N != nullptr) {
         N->next = destroyList(N->next);
         delete N;
-        return nullptr;
     }
+    return nullptr;
 }
 
 template <typename T>
@@ -29,14 +29,11 @@ node<T> *  list<T>::pushBack(node<T> *N, T &arg) {
 
 template <typename T>
 node<T> * list<T>::add(node<T> *N, size_t current, size_t &to_be_added, T &arg) {
-    if (to_be_added >= total_elements) {
-        cerr << "ERROR" << endl;
-        throw (range_error("Try using [void]pushBack(node<T> *, T &) method instead"));
-    }
     if (current == to_be_added) {
         auto *added_node = new node<T>;
         added_node->data = arg;
         added_node->next = N;
+        ++total_elements;
         return added_node;
     }
     N->next = add(N->next, current + 1, to_be_added, arg);
@@ -121,6 +118,10 @@ size_t list<T>::numOfElements() const {
 
 template <typename T>
 void list<T>::add(size_t i, T arg) {
+    if (i >= total_elements) {
+        cerr << "ERROR" << endl;
+        throw (range_error("Try using [void]pushBack(node<T> *, T &) method instead"));
+    }
     first = add(first, 0, i, arg);
 }
 
