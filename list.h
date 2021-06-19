@@ -28,6 +28,7 @@ private:
     node<T> * remove(node <T> *, T &, bool &);
     node<T> * returnElement(node <T> *,size_t, size_t &);
 
+    void copyLists(node<T> *&, node<T> *&);
     void print(node<T> *N, ostream &) const;
 public:
     list();

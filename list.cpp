@@ -77,13 +77,22 @@ node<T> * list<T>::returnElement(node <T> *N, size_t current, size_t &to_be_foun
     return returnElement(N->next, current + 1, to_be_found);
 }
 
+template <typename T>
+void list<T>::copyLists(node<T>* &copy, node<T>* &prototype) {
+    if (prototype != nullptr) {
+        copy = new node<T>;
+        copy->data = prototype->data;
+        copyLists(copy->next, prototype->next);
+    }
+}
+
 
 // -------------------------- PUBLIC --------------------------
 
 template <typename T>
 list<T>::list() {
-    size = 0;
     first = nullptr;
+    size = 0;
 }
 
 template <typename T>
@@ -92,13 +101,10 @@ list<T>::~list() {
 }
 
 template <typename T>
-list<T>::list(list<T> &copy) {
-    size = 0;
+list<T>::list(list<T> &prototype) {
     first = nullptr;
-
-    for (size_t i = 0; i < copy.getSize(); ++i) {
-        this->pushBack(copy[i]);
-    }
+    size = prototype.size;
+    copyLists(first, prototype.first);
 }
 
 template <typename T>
