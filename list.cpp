@@ -20,7 +20,7 @@ node<T> *  list<T>::pushBack(node<T> *N, T &arg) {
     if (N == nullptr) {
         N = new node<T>;
         N->data = arg;
-        ++total_elements;
+        ++size;
     } else {
         N->next = pushBack(N->next, arg);
     }
@@ -33,7 +33,7 @@ node<T> * list<T>::add(node<T> *N, size_t current, size_t &to_be_added, T &arg) 
         auto *added_node = new node<T>;
         added_node->data = arg;
         added_node->next = N;
-        ++total_elements;
+        ++size;
         return added_node;
     }
     N->next = add(N->next, current + 1, to_be_added, arg);
@@ -49,7 +49,7 @@ node<T> * list<T>::remove(node<T> *N, T &arg, bool &deleted) {
         deleted = true;
         node<T> *temp = N->next;
         delete N;
-        --total_elements;
+        --size;
         return temp;
     }
     N->next = remove(N->next, arg, deleted);
@@ -68,7 +68,7 @@ void list<T>::print(node<T> *N, ostream &output) const {
 
 template <typename T>
 node<T> * list<T>::returnElement(node <T> *N, size_t current, size_t &to_be_found) {
-    if (to_be_found >= total_elements) {
+    if (to_be_found >= size) {
         throw (range_error("Access violation"));
     }
     if (current == to_be_found) {
@@ -82,7 +82,7 @@ node<T> * list<T>::returnElement(node <T> *N, size_t current, size_t &to_be_foun
 
 template <typename T>
 list<T>::list() {
-    total_elements = 0;
+    size = 0;
     first = nullptr;
 }
 
@@ -113,13 +113,13 @@ void list<T>::print(ostream &output) const {
 }
 
 template <typename T>
-size_t list<T>::numOfElements() const {
-    return total_elements;
+size_t list<T>::getSize() const {
+    return size;
 }
 
 template <typename T>
 void list<T>::add(size_t i, T arg) {
-    if (i >= total_elements) {
+    if (i >= size) {
         throw (range_error("Position out of list's range. "
                            "Try using [void]pushBack(node<T> *, T &) method instead"));
     }

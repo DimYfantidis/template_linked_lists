@@ -13,13 +13,16 @@ int main() {
     gang.pushBack("Andreas");
     gang.pushBack("Giannis");
 
-    cout << gang << endl << "(" << gang.numOfElements() << " elements)" << endl;
+    cout << gang << endl << "(" << gang.getSize() << " elements)" << endl;
 
     gang[3] = "Onoma #4";
-    cout << gang << endl << "(" << gang.numOfElements() << " elements)" << endl;
+    cout << gang << endl << "(" << gang.getSize() << " elements)" << endl;
+
+    gang.remove("Onoma #4");
+    cout << gang << endl << "(" << gang.getSize() << " elements)" << endl;
 
     gang.add(1, "Dimitris");
-    cout << gang << endl << "(" << gang.numOfElements() << " elements)" << endl;
+    cout << gang << endl << "(" << gang.getSize() << " elements)" << endl;
 
 
     cout << endl;
@@ -35,7 +38,7 @@ int main() {
     cin.clear();
     cin.ignore(1000,'\n');
 
-    cout << endl << integers << endl << "(" << integers.numOfElements() << " elements)\n" << endl;
+    cout << endl << integers << endl << "(" << integers.getSize() << " elements)\n" << endl;
 
     int N;
     int keep_adding;
@@ -51,7 +54,7 @@ int main() {
             cerr << "ERROR\nPosition index out of range" << endl;
         }
 
-        cout << endl << integers << endl << "(" << integers.numOfElements() << " elements)\n" << endl;
+        cout << endl << integers << endl << "(" << integers.getSize() << " elements)\n" << endl;
         cout << "Add more? (1: Yes, 0: No): ";
         cin >> keep_adding;
     } while (keep_adding);

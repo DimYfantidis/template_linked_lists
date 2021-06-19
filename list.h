@@ -20,7 +20,7 @@ public:
 template <class T> class list {
 private:
     node<T> *first;
-    size_t total_elements;
+    size_t size;
 
     node<T> * destroyList(node <T> *);
     node<T> * pushBack(node <T> *, T &);
@@ -33,12 +33,12 @@ public:
     list();
     ~list();
 
+    size_t getSize() const;
+
     void pushBack(T arg);
     void add(size_t, T);
     bool remove(T arg);
     void print(ostream &) const;
-
-    size_t numOfElements() const;
 
     T & operator [] (size_t);
 };
