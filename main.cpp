@@ -30,7 +30,7 @@ int main() {
     triadi_gang[1] = "Billy";
     triadi_gang.remove(triadi_gang[2]);
 
-    cout << "Killkys gang: \t" << gang << endl
+    cout << "Killkys gang:\t" << gang << endl
          << "Triadi gang: \t" << triadi_gang << endl;
 
     cout << endl;

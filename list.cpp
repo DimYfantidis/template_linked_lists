@@ -78,7 +78,7 @@ node<T> * list<T>::returnElement(node <T> *N, size_t current, size_t &to_be_foun
 }
 
 template <typename T>
-void list<T>::copyLists(node<T>* &copy, node<T>* &prototype) {
+void list<T>::copyLists(node<T>* &copy, const node<T> *prototype) {
     if (prototype != nullptr) {
         copy = new node<T>;
         copy->data = prototype->data;
@@ -101,7 +101,7 @@ list<T>::~list() {
 }
 
 template <typename T>
-list<T>::list(list<T> &prototype) {
+list<T>::list(const list<T> &prototype) {
     first = nullptr;
     size = prototype.size;
     copyLists(first, prototype.first);

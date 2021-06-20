@@ -28,11 +28,11 @@ private:
     node<T> * remove(node <T> *, T &, bool &);
     node<T> * returnElement(node <T> *,size_t, size_t &);
 
-    void copyLists(node<T> *&, node<T> *&);
-    void print(node<T> *N, ostream &) const;
+    void copyLists(node<T>* &, const node<T>*);
+    void print(node<T> *, ostream &) const;
 public:
     list();
-    list(list<T> &);
+    list(const list<T> &);
     ~list();
 
     size_t getSize() const;
