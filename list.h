@@ -29,7 +29,7 @@ private:
     node<T> * returnElement(node <T> *,size_t, size_t &);
 
     void copyLists(node<T>* &, const node<T>*);
-    void print(node<T> *, ostream &) const;
+    void print(const node<T> *, ostream &) const;
 public:
     list();
     list(const list<T> &);

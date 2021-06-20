@@ -57,7 +57,7 @@ node<T> * list<T>::remove(node<T> *N, T &arg, bool &deleted) {
 }
 
 template <typename T>
-void list<T>::print(node<T> *N, ostream &output) const {
+void list<T>::print(const node<T> *N, ostream &output) const {
     if (N == nullptr) {
         output << "\b\b";
         return;
