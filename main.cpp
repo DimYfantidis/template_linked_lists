@@ -1,8 +1,14 @@
 #include <iostream>
+#include <fstream>
 #include <string>
+#include <chrono>
 #include "list.h"
 
 using namespace std;
+
+#define READ_TIME std::chrono::high_resolution_clock::now()
+#define MS_DIFF   std::chrono::duration_cast<std::chrono::milliseconds>
+#define DBL_SIZE  10000
 
 int main() {
     list<string> gang;
@@ -74,6 +80,38 @@ int main() {
         cin >> keep_adding;
     } while (keep_adding);
 
+
+    cout << endl;
+
+    list<double> doubles;
+
+    auto start = READ_TIME;
+    for (int i = 0; i < DBL_SIZE; ++i) {
+        try {
+            doubles.pushBack((double)i + 0.5);
+        } catch (...) {
+            cerr << "Memory Error! Exiting ..." << endl;
+            exit(2);
+        }
+    }
+    auto end = READ_TIME;
+    auto duration = MS_DIFF (end - start);
+
+    cout << "Doubles list created in " << (double)duration.count()/1000 << " seconds." << endl;
+
+    ofstream outFile;
+    outFile.open("list of doubles.txt", ios::out);
+    if (outFile.is_open()) {
+        start = READ_TIME;
+        doubles.print(outFile, vertically);
+        end = READ_TIME;
+        duration = MS_DIFF (end - start);
+        outFile.close();
+    } else {
+        cerr << "File Error!" << endl;
+    }
+
+    cout << "Doubles list printed in " << (double)duration.count()/1000 << " seconds." << endl;
 
     return 0;
 }

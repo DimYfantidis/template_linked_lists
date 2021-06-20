@@ -8,4 +8,4 @@ include_directories(.)
 add_executable(template_linked_lists
         list.cpp
         list.h
-        main.cpp)
+        main.cpp timer.h)

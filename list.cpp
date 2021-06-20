@@ -57,13 +57,21 @@ node<T> * list<T>::remove(node<T> *N, T &arg, bool &deleted) {
 }
 
 template <typename T>
-void list<T>::print(const node<T> *N, ostream &output) const {
+void list<T>::printHorizontally(const node<T> *N, ostream &output) const {
     if (N == nullptr) {
-        output << "\b\b";
         return;
     }
-    output << N->data << ", ";
-    print(N->next, output);
+    output << N->data << (N->next != nullptr ? ", " : "");
+    printHorizontally(N->next, output);
+}
+
+template <typename T>
+void list<T>::printVertically(const node<T> *N, ostream &output) const {
+    if (N == nullptr) {
+        return;
+    }
+    output << N->data << "\n";
+    printVertically(N->next, output);
 }
 
 template <typename T>
@@ -130,12 +138,21 @@ bool list<T>::remove(T arg) {
 }
 
 template <typename T>
-void list<T>::print(ostream &output) const {
-    output << "[";
-    if (first != nullptr) {
-        print(first, output);
+void list<T>::print(ostream &output, unsigned short mode) const {
+    if (mode & horizontally) {
+        output << "[";
+        if (first != nullptr) {
+            printHorizontally(first, output);
+        }
+        output << "]";
     }
-    output << "]";
+    if (mode & vertically) {
+        output << "--------\n";
+        if (first != nullptr) {
+            printVertically(first, output);
+        }
+        output << "--------";
+    }
 }
 
 template <typename T>

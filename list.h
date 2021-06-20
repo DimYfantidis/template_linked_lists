@@ -2,7 +2,11 @@
 #define LIST_H
 
 #include <iostream>
+#include "timer.h"
 using namespace std;
+
+#define vertically   0b01
+#define horizontally 0b10
 
 template <class T> class node {
 public:
@@ -28,8 +32,9 @@ private:
     node<T> * remove(node <T> *, T &, bool &);
     node<T> * returnElement(node <T> *,size_t, size_t &);
 
-    void copyLists(node<T>* &, const node<T>*);
-    void print(const node<T> *, ostream &) const;
+    void copyLists(node<T>* &, const node<T> *);
+    void printVertically(const node<T> *, ostream &) const;
+    void printHorizontally(const node<T> *, ostream &) const;
 public:
     list();
     list(const list<T> &);
@@ -37,11 +42,12 @@ public:
 
     size_t getSize() const;
 
-    void clear();
     void pushBack(T arg);
     void add(size_t, T);
     bool remove(T arg);
-    void print(ostream &) const;
+
+    void print(ostream &, unsigned short mode = horizontally) const;
+    void clear();
 
     T & operator [] (size_t);
 };

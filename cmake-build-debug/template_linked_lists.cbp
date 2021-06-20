@@ -91,6 +91,9 @@
 		<Unit filename="C:/Users/axaio/CLionProjects/template_linked_lists/main.cpp">
 			<Option target="template_linked_lists"/>
 		</Unit>
+		<Unit filename="C:/Users/axaio/CLionProjects/template_linked_lists/timer.h">
+			<Option target="template_linked_lists"/>
+		</Unit>
 		<Unit filename="C:/Users/axaio/CLionProjects/template_linked_lists/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
