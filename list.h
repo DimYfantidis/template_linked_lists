@@ -4,10 +4,10 @@
 #include <iostream>
 using namespace std;
 
-template <class TYPE> class node {
+template <class T> class node {
 public:
-    TYPE data;
-    node<TYPE> *next;
+    T data;
+    node<T> *next;
 
     node() {
         next = nullptr;

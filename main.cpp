@@ -33,6 +33,9 @@ int main() {
     cout << "Killkys gang:\t" << gang << endl
          << "Triadi gang: \t" << triadi_gang << endl;
 
+    gang.clear();
+    cout << "Killkys gang cleared: " << gang << endl;
+
     cout << endl;
 
     list<int> integers;
