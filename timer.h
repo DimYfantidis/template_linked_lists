@@ -20,7 +20,7 @@ public:
         stop = std::chrono::high_resolution_clock::now();
         duration = std::chrono::duration_cast <std::chrono::milliseconds > (stop - start);
         if (duration.count() > 0) {
-            std::cout << "\n" << label << " function lasted " << duration.count() << " milliseconds\n";
+            std::cout << "\n" << label << " function lasted " << (double)duration.count()/1000 << " seconds\n";
         }
     }
 };
