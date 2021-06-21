@@ -24,15 +24,15 @@ public:
 template <class T> class list {
 private:
     node<T> *head;
+    node<T> *tail;
     size_t size;
 
-    node<T> * destroyList(node <T> *);
-    node<T> * pushBack(node <T> *, T &);
+    node<T> * destroyList(node<T> *);
     node<T> * add(node<T> *, size_t, size_t &, T &);
-    node<T> * remove(node <T> *, T &, bool &);
-    node<T> * returnElement(node <T> *,size_t, size_t &);
+    node<T> * remove(node<T> *, T &, bool &);
+    node<T> * returnElement(node<T> *, size_t, size_t &);
 
-    void copyLists(node<T>* &, const node<T> *);
+    void copyLists(node<T>* &, const node<T> *, node<T>* &);
     void printVertically(const node<T> *, ostream &) const;
     void printHorizontally(const node<T> *, ostream &) const;
 public:

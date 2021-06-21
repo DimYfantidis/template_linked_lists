@@ -8,7 +8,7 @@ using namespace std;
 
 #define READ_TIME std::chrono::high_resolution_clock::now()
 #define MS_DIFF   std::chrono::duration_cast<std::chrono::milliseconds>
-#define DBL_SIZE  10000
+#define DBL_SIZE  30000
 
 int main() {
     list<string> gang;
@@ -19,16 +19,16 @@ int main() {
     gang.pushBack("Andreas");
     gang.pushBack("Giannis");
 
-    cout << gang << endl << "(" << gang.getSize() << " elements)" << endl;
+    cout << gang << "\t(" << gang.getSize() << " elements)" << endl;
 
     gang[0] = "Nikos";
-    cout << gang << endl << "(" << gang.getSize() << " elements)" << endl;
+    cout << gang << "\t(" << gang.getSize() << " elements)" << endl;
 
     gang.remove(gang[3]);
-    cout << gang << endl << "(" << gang.getSize() << " elements)" << endl;
+    cout << gang << "\t\t(" << gang.getSize() << " elements)" << endl;
 
     gang.add(1, "Dimitris");
-    cout << gang << endl << "(" << gang.getSize() << " elements)" << endl;
+    cout << gang << "\t(" << gang.getSize() << " elements)" << endl;
 
     cout << endl;
 

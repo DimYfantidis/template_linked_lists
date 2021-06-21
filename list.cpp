@@ -16,18 +16,6 @@ node<T> * list<T>::destroyList(node<T> *N) {
 }
 
 template <typename T>
-node<T> *  list<T>::pushBack(node<T> *N, T &arg) {
-    if (N == nullptr) {
-        N = new node<T>;
-        N->data = arg;
-        ++size;
-    } else {
-        N->next = pushBack(N->next, arg);
-    }
-    return N;
-}
-
-template <typename T>
 node<T> * list<T>::add(node<T> *N, size_t current, size_t &to_be_added, T &arg) {
     if (current == to_be_added) {
         auto *added_node = new node<T>;
@@ -83,11 +71,12 @@ node<T> * list<T>::returnElement(node <T> *N, size_t current, size_t &to_be_foun
 }
 
 template <typename T>
-void list<T>::copyLists(node<T>* &copy, const node<T> *prototype) {
+void list<T>::copyLists(node<T>* &copy, const node<T> *prototype, node<T>* &end) {
     if (prototype != nullptr) {
         copy = new node<T>;
         copy->data = prototype->data;
-        copyLists(copy->next, prototype->next);
+        end = copy;
+        copyLists(copy->next, prototype->next, end);
     }
 }
 
@@ -97,6 +86,7 @@ void list<T>::copyLists(node<T>* &copy, const node<T> *prototype) {
 template <typename T>
 list<T>::list() {
     head = nullptr;
+    tail = nullptr;
     size = 0;
 }
 
@@ -108,7 +98,7 @@ list<T>::~list() {
 template <typename T>
 list<T>::list(const list<T> &prototype) {
     size = prototype.size;
-    copyLists(head, prototype.head);
+    copyLists(head, prototype.head, tail);
 }
 
 template <typename T>
@@ -123,7 +113,16 @@ void list<T>::clear() {
 
 template <typename T>
 void list<T>::pushBack(T arg) {
-    head = pushBack(head, arg);
+    if (size == 0) {
+        head = new node<T>;
+        head->data = arg;
+        tail = head;
+    } else {
+        tail->next = new node<T>;
+        tail->next->data = arg;
+        tail = tail->next;
+    }
+    ++size;
 }
 
 template <typename T>
