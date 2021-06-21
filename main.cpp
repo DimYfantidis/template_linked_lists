@@ -8,7 +8,7 @@ using namespace std;
 
 #define READ_TIME std::chrono::high_resolution_clock::now()
 #define MS_DIFF   std::chrono::duration_cast<std::chrono::milliseconds>
-#define DBL_SIZE  30000
+#define DBL_SIZE  10000
 
 int main() {
     list<string> gang;
