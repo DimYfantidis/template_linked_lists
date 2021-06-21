@@ -1,4 +1,4 @@
-"C:\Program Files\JetBrains\CLion 2020.3.2\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" C:\Users\axaio\CLionProjects\template_linked_lists
+C:\Users\axaio\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\211.7442.42\bin\cmake\win\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" C:\Users\axaio\CLionProjects\template_linked_lists
 -- Configuring done
 -- Generating done
 -- Build files have been written to: C:/Users/axaio/CLionProjects/template_linked_lists/cmake-build-debug

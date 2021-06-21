@@ -76,9 +76,6 @@ void list<T>::printVertically(const node<T> *N, ostream &output) const {
 
 template <typename T>
 node<T> * list<T>::returnElement(node <T> *N, size_t current, size_t &to_be_found) {
-    if (to_be_found >= size) {
-        throw (range_error("Access violation"));
-    }
     if (current == to_be_found) {
         return N;
     }
@@ -99,20 +96,20 @@ void list<T>::copyLists(node<T>* &copy, const node<T> *prototype) {
 
 template <typename T>
 list<T>::list() {
-    first = nullptr;
+    head = nullptr;
+    tail = nullptr;
     size = 0;
 }
 
 template <typename T>
 list<T>::~list() {
-    first = destroyList(first);
+    head = destroyList(head);
 }
 
 template <typename T>
 list<T>::list(const list<T> &prototype) {
-    first = nullptr;
     size = prototype.size;
-    copyLists(first, prototype.first);
+    copyLists(head, prototype.head);
 }
 
 template <typename T>
@@ -122,18 +119,18 @@ size_t list<T>::getSize() const {
 
 template <typename T>
 void list<T>::clear() {
-    first = destroyList(first);
+    head = destroyList(head);
 }
 
 template <typename T>
 void list<T>::pushBack(T arg) {
-    first = pushBack(first, arg);
+    head = pushBack(head, arg);
 }
 
 template <typename T>
 bool list<T>::remove(T arg) {
     bool deleted = false;
-    first = remove(first, arg, deleted);
+    head = remove(head, arg, deleted);
     return deleted;
 }
 
@@ -141,15 +138,15 @@ template <typename T>
 void list<T>::print(ostream &output, unsigned short mode) const {
     if (mode & horizontally) {
         output << "[";
-        if (first != nullptr) {
-            printHorizontally(first, output);
+        if (head != nullptr) {
+            printHorizontally(head, output);
         }
         output << "]";
     }
     if (mode & vertically) {
         output << "--------\n";
-        if (first != nullptr) {
-            printVertically(first, output);
+        if (head != nullptr) {
+            printVertically(head, output);
         }
         output << "--------";
     }
@@ -161,12 +158,15 @@ void list<T>::add(size_t i, T arg) {
         throw (range_error("Position out of list's range. "
                            "Try using [void]pushBack(node<T> *, T &) method instead"));
     }
-    first = add(first, 0, i, arg);
+    head = add(head, 0, i, arg);
 }
 
 template <typename T>
 T& list<T>::operator [] (size_t i) {
-    auto *temp = returnElement(first, (size_t)0, i);
+    if (i >= size) {
+        throw (range_error("Access violation"));
+    }
+    auto *temp = returnElement(head, (size_t)0, i);
     return temp->data;
 }
 
