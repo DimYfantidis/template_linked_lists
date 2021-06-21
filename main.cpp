@@ -8,7 +8,7 @@ using namespace std;
 
 #define READ_TIME std::chrono::high_resolution_clock::now()
 #define MS_DIFF   std::chrono::duration_cast<std::chrono::milliseconds>
-#define DBL_SIZE  10000
+#define DBL_SIZE  30000
 
 int main() {
     list<string> gang;
@@ -103,7 +103,7 @@ int main() {
     outFile.open("list of doubles.txt", ios::out);
     if (outFile.is_open()) {
         start = READ_TIME;
-        doubles.print(outFile, vertically);
+        doubles.print(outFile, VERT);
         end = READ_TIME;
         duration = MS_DIFF (end - start);
         outFile.close();

@@ -134,14 +134,14 @@ bool list<T>::remove(T arg) {
 
 template <typename T>
 void list<T>::print(ostream &output, unsigned short mode) const {
-    if (mode & horizontally) {
+    if (mode & HORIZ) {
         output << "[";
         if (head != nullptr) {
             printHorizontally(head, output);
         }
         output << "]";
     }
-    if (mode & vertically) {
+    if (mode & VERT) {
         output << "--------\n";
         if (head != nullptr) {
             printVertically(head, output);

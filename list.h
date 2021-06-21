@@ -5,8 +5,8 @@
 #include "timer.h"
 using namespace std;
 
-#define vertically   0b01
-#define horizontally 0b10
+#define VERT  0b01
+#define HORIZ 0b10
 
 template <class T> class node {
 public:
@@ -46,7 +46,7 @@ public:
     void add(size_t, T);
     bool remove(T arg);
 
-    void print(ostream &, unsigned short mode = horizontally) const;
+    void print(ostream &, unsigned short mode = HORIZ) const;
     void clear();
 
     T & operator [] (size_t);
