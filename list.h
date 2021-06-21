@@ -24,7 +24,6 @@ public:
 template <class T> class list {
 private:
     node<T> *head;
-    node<T> *tail;
     size_t size;
 
     node<T> * destroyList(node <T> *);

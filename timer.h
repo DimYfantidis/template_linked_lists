@@ -11,7 +11,7 @@ private:
     std::chrono::time_point<std::chrono::_V2::system_clock> stop;
     std::chrono::duration<long long, std::ratio<1, 1000>> duration{};
 public:
-    Timer(const char *function_name) {
+    explicit Timer(const char *function_name) {
         label = new char[strlen(function_name) + 1];
         strcpy(label, function_name);
         start = std::chrono::high_resolution_clock::now();

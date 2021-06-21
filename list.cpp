@@ -97,7 +97,6 @@ void list<T>::copyLists(node<T>* &copy, const node<T> *prototype) {
 template <typename T>
 list<T>::list() {
     head = nullptr;
-    tail = nullptr;
     size = 0;
 }
 
