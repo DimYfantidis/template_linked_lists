@@ -61,16 +61,16 @@ int main() {
 
     cout << endl << integers << endl << "(" << integers.getSize() << " elements)\n" << endl;
 
-    int N;
+    int pos;
     int keep_adding;
     do {
         cout << "Select position to add integer: ";
-        cin >> N;
+        cin >> pos;
         cout << "Value: ";
         cin >> k;
 
         try {
-            integers.add(N, k);
+            integers.add(pos, k);
         } catch (...) {
             cerr << "ERROR\nPosition index out of range" << endl;
         }
@@ -94,8 +94,8 @@ int main() {
             exit(2);
         }
     }
-    auto end = READ_TIME;
-    auto duration = MS_DIFF (end - start);
+    auto stop = READ_TIME;
+    auto duration = MS_DIFF (stop - start);
 
     cout << "Doubles list created in " << (double)duration.count()/1000 << " seconds." << endl;
 
@@ -104,8 +104,8 @@ int main() {
     if (outFile.is_open()) {
         start = READ_TIME;
         doubles.print(outFile, VERT);
-        end = READ_TIME;
-        duration = MS_DIFF (end - start);
+        stop = READ_TIME;
+        duration = MS_DIFF (stop - start);
         outFile.close();
     } else {
         cerr << "File Error!" << endl;
