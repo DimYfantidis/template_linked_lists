@@ -13,11 +13,11 @@ using namespace std;
 int main() {
     list<string> gang;
 
-    gang.push("Thanasis");
-    gang.push("Varelas");
-    gang.push("Stavros");
-    gang.push("Andreas");
-    gang.push("Giannis");
+    gang.pushBack("Thanasis");
+    gang.pushBack("Varelas");
+    gang.pushBack("Stavros");
+    gang.pushBack("Andreas");
+    gang.pushBack("Giannis");
 
     cout << gang << "\t(" << gang.getSize() << " elements)" << endl;
 
@@ -46,7 +46,7 @@ int main() {
     int k;
     cout << "Input Values (write \"stop\" to continue): ";
     while (cin >> k) {
-        integers.push(k);
+        integers.pushBack(k);
     }
     cin.clear();
     cin.ignore(1000,'\n');
@@ -85,7 +85,7 @@ int main() {
     auto start = READ_TIME;
     for (int i = 0; i < DBL_SIZE; ++i) {
         try {
-            doubles.push((double)i + 0.5);
+            doubles.pushBack((double)i + 0.5);
         } catch (...) {
             cerr << "Memory Error! Exiting ..." << endl;
             exit(2);

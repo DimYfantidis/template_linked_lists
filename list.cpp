@@ -25,7 +25,7 @@ void list<T>::printVertically(const node_l<T> *N, ostream &output) const {
 }
 
 template <typename T>
-node_l<T> * list<T>::search(node_l<T> *N, T &arg, bool &found) const {
+node_l<T> * list<T>::search(node_l<T> *N, const T &arg, bool &found) const {
     if (N == nullptr) {
         return nullptr;
     }
@@ -68,14 +68,14 @@ list<T>::list(const list<T> &prototype) {
         tail = nullptr;
         return;
     }
-    head = new node_l<T>;
-    head->data = prototype.head->data;
+    head = new node_l<T>(prototype.head->data);
+    //head->data = prototype.head->data;
     tail = head;
 
     auto *temp = prototype.head;
     while (temp->next != nullptr) {
-        tail->next = new node_l<T>;
-        tail->next->data = temp->next->data;
+        tail->next = new node_l<T>(temp->next->data);
+        //tail->next = temp->next->data
         tail->next->prev = tail;
         tail = tail->next;
         temp = temp->next;
@@ -88,18 +88,32 @@ long long list<T>::getSize() const {
 }
 
 template <typename T>
-void list<T>::push(T arg) {
+void list<T>::pushBack(const T &arg) {
     if (empty()) {
-        head = new node_l<T>;
-        head->data = arg;
+        head = new node_l<T>(arg);
+        //head->data = arg;
         tail = head;
     } else {
-        tail->next = new node_l<T>;
-        tail->next->data = arg;
+        tail->next = new node_l<T>(arg);
+        //tail->next->data = arg;
         tail->next->prev = tail;
         tail = tail->next;
     }
     ++size;
+}
+
+template <typename T>
+void list<T>::pushFront(const T &arg) {
+    if (empty()) {
+        head = new node_l<T>(arg);
+        //head->data = arg;
+        tail = head;
+    } else {
+        auto *temp = head;
+        head = new node_l<T>(arg);
+        head->next = temp;
+        temp->prev = head;
+    }
 }
 
 template <typename T>
@@ -115,17 +129,20 @@ bool list<T>::pop() {
 }
 
 template <typename T>
-bool list<T>::search(T arg) const {
+bool list<T>::search(const T &arg) const {
     bool found = false;
     search(head, arg, found);
     return found;
 }
 
 template <typename T>
-void list<T>::insert(long long pos, T arg) {
+void list<T>::insert(long long pos, const T &arg) {
     node_l<T> *scanner_node, *new_node;
     long long i;
-    if (pos >= 0) {
+
+    if (pos == 0 || pos == -size) {
+        pushFront(arg);
+    } else if (pos > 0) {
         if (pos >= size) {
             throw (range_error("ERROR: Bad position"));
         }
@@ -133,17 +150,13 @@ void list<T>::insert(long long pos, T arg) {
         for (i = 0; i < pos; ++i) {
             scanner_node = scanner_node->next;
         }
-        new_node = new node_l<T>;
-        new_node->data = arg;
+        new_node = new node_l<T>(arg);
+        //new_node->data = arg;
 
         new_node->prev = scanner_node->prev;
         scanner_node->prev = new_node;
         new_node->next = scanner_node;
-        if (pos != 0) {
-            new_node->prev->next = new_node;
-        } else {
-            head = new_node;
-        }
+        new_node->prev->next = new_node;
     } else {
         if (abs(pos) > size) {
             throw (range_error("ERROR: Bad position"));
@@ -152,8 +165,8 @@ void list<T>::insert(long long pos, T arg) {
         for (i = size - 1; i > size - abs(pos); --i) {
             scanner_node = scanner_node->prev;
         }
-        new_node = new node_l<T>;
-        new_node->data = arg;
+        new_node = new node_l<T>(arg);
+        //new_node->data = arg;
 
         scanner_node->next->prev = new_node;
         new_node->next = scanner_node->next;
@@ -164,7 +177,7 @@ void list<T>::insert(long long pos, T arg) {
 }
 
 template <typename T>
-bool list<T>::remove(T arg) {
+bool list<T>::remove(const T &arg) {
     if (empty()) {
         return false;
     }
@@ -230,8 +243,8 @@ list<T> & list<T>::operator = (const list<T> &arg) {
 }
 
 template <typename T>
-list<T> & list<T>::operator += (T arg) {
-    push(arg);
+list<T> & list<T>::operator += (const T &arg) {
+    pushBack(arg);
     return *this;
 }
 

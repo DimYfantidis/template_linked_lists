@@ -17,6 +17,11 @@ public:
         next = nullptr;
         prev = nullptr;
     }
+    node_l(const T &init) {
+        data = init;
+        next = nullptr;
+        prev = nullptr;
+    }
     ~node_l() {
         next = nullptr;
         prev = nullptr;
@@ -31,7 +36,7 @@ private:
 
     void printHorizontally(const node_l<T> *, ostream &) const;
     void printVertically(const node_l<T> *, ostream &) const;
-    node_l<T> * search(node_l<T> *, T &, bool &) const;
+    node_l<T> * search(node_l<T> *, const T &, bool &) const;
 public:
     list();
     ~list();
@@ -39,17 +44,18 @@ public:
 
     long long getSize() const;
 
-    void push(T);
+    void pushBack(const T &);
+    void pushFront(const T &);
     bool pop();
-    bool search(T) const;
-    void insert(long long, T);
-    bool remove(T);
+    bool search(const T &) const;
+    void insert(long long, const T &);
+    bool remove(const T &);
 
     bool empty() const;
     void print(ostream &, unsigned short mode = HORIZ) const;
 
     list<T> & operator =  (const list<T> &);
-    list<T> & operator += (T);
+    list<T> & operator += (const T &);
     T & operator [] (long long);
 };
 
