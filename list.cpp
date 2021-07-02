@@ -115,7 +115,7 @@ bool list<T>::pop() {
 }
 
 template <typename T>
-bool list<T>::search(T arg) {
+bool list<T>::search(T arg) const {
     bool found = false;
     search(head, arg, found);
     return found;

@@ -41,7 +41,7 @@ public:
 
     void push(T);
     bool pop();
-    bool search(T);
+    bool search(T) const;
     void insert(long long, T);
     bool remove(T);
 
