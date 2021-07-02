@@ -13,8 +13,6 @@ C:/Users/axaio/CLionProjects/template_linked_lists/list.h
 C:/Users/axaio/CLionProjects/template_linked_lists/list.h
 iostream
 -
-timer.h
-C:/Users/axaio/CLionProjects/template_linked_lists/timer.h
 list.cpp
 C:/Users/axaio/CLionProjects/template_linked_lists/list.cpp
 
@@ -29,10 +27,4 @@ chrono
 -
 list.h
 C:/Users/axaio/CLionProjects/template_linked_lists/list.h
-
-C:/Users/axaio/CLionProjects/template_linked_lists/timer.h
-chrono
--
-cstring
--
 

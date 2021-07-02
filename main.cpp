@@ -13,11 +13,11 @@ using namespace std;
 int main() {
     list<string> gang;
 
-    gang.pushBack("Thanasis");
-    gang.pushBack("Varelas");
-    gang.pushBack("Stavros");
-    gang.pushBack("Andreas");
-    gang.pushBack("Giannis");
+    gang.push("Thanasis");
+    gang.push("Varelas");
+    gang.push("Stavros");
+    gang.push("Andreas");
+    gang.push("Giannis");
 
     cout << gang << "\t(" << gang.getSize() << " elements)" << endl;
 
@@ -27,7 +27,7 @@ int main() {
     gang.remove(gang[3]);
     cout << gang << "\t\t(" << gang.getSize() << " elements)" << endl;
 
-    gang.add(1, "Dimitris");
+    gang.insert(1, "Dimitris");
     cout << gang << "\t(" << gang.getSize() << " elements)" << endl;
 
     cout << endl;
@@ -39,9 +39,6 @@ int main() {
     cout << "Killkys gang:\t" << gang << endl
          << "Triadi gang: \t" << triadi_gang << endl;
 
-    gang.clear();
-    cout << "Killkys gang cleared: " << gang << endl;
-
     cout << endl;
 
     list<int> integers;
@@ -49,7 +46,7 @@ int main() {
     int k;
     cout << "Input Values (write \"stop\" to continue): ";
     while (cin >> k) {
-        integers.pushBack(k);
+        integers.push(k);
     }
     cin.clear();
     cin.ignore(1000,'\n');
@@ -70,7 +67,7 @@ int main() {
         cin >> k;
 
         try {
-            integers.add(pos, k);
+            integers.insert(pos, k);
         } catch (...) {
             cerr << "ERROR\nPosition index out of range" << endl;
         }
@@ -88,7 +85,7 @@ int main() {
     auto start = READ_TIME;
     for (int i = 0; i < DBL_SIZE; ++i) {
         try {
-            doubles.pushBack((double)i + 0.5);
+            doubles.push((double)i + 0.5);
         } catch (...) {
             cerr << "Memory Error! Exiting ..." << endl;
             exit(2);

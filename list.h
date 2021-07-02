@@ -2,58 +2,59 @@
 #define LIST_H
 
 #include <iostream>
-#include "timer.h"
 using namespace std;
 
-#define VERT  0b01
-#define HORIZ 0b10
+#define HORIZ 0b01
+#define VERT  0b10
 
-template <class T> class node {
+template <class T> class node_l {
 public:
     T data;
-    node<T> *next;
+    node_l<T> *next;
+    node_l<T> *prev;
 
-    node() {
+    node_l() {
         next = nullptr;
+        prev = nullptr;
     }
-    ~node() {
+    ~node_l() {
         next = nullptr;
+        prev = nullptr;
     }
 };
 
 template <class T> class list {
 private:
-    node<T> * head;
-    node<T> * tail;
-    size_t size;
+    node_l<T> *head;
+    node_l<T> *tail;
+    long long size;
 
-    node<T> * destroyList(node<T> *);
-    node<T> * add(node<T> *, size_t, size_t &, T &);
-    node<T> * remove(node<T> *, T &, bool &);
-    node<T> * returnElement(node<T> *, size_t, size_t &);
-
-    void copyLists(node<T>* &, const node<T> *, node<T>* &);
-    void printVertically(const node<T> *, ostream &) const;
-    void printHorizontally(const node<T> *, ostream &) const;
+    void printHorizontally(const node_l<T> *, ostream &) const;
+    void printVertically(const node_l<T> *, ostream &) const;
+    node_l<T> * search(node_l<T> *, T &, bool &) const;
 public:
     list();
-    list(const list<T> &);
     ~list();
+    list(const list<T> &);
 
-    size_t getSize() const;
+    long long getSize() const;
 
-    void pushBack(T arg);
-    void add(size_t, T);
-    bool remove(T arg);
+    void push(T);
+    bool pop();
+    bool search(T);
+    void insert(long long, T);
+    bool remove(T);
 
+    bool empty() const;
     void print(ostream &, unsigned short mode = HORIZ) const;
-    void clear();
 
-    T & operator [] (size_t);
+    list<T> & operator =  (const list<T> &);
+    list<T> & operator += (T);
+    T & operator [] (long long);
 };
 
 template <typename T>
-ostream & operator << (ostream &, const list<T> &);
+ostream  & operator << (ostream &, const list<T> &);
 
 #include "list.cpp"
 

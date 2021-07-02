@@ -3,10 +3,8 @@
 
 CMakeFiles/template_linked_lists.dir/list.cpp.obj: ../list.cpp
 CMakeFiles/template_linked_lists.dir/list.cpp.obj: ../list.h
-CMakeFiles/template_linked_lists.dir/list.cpp.obj: ../timer.h
 
 CMakeFiles/template_linked_lists.dir/main.cpp.obj: ../list.cpp
 CMakeFiles/template_linked_lists.dir/main.cpp.obj: ../list.h
 CMakeFiles/template_linked_lists.dir/main.cpp.obj: ../main.cpp
-CMakeFiles/template_linked_lists.dir/main.cpp.obj: ../timer.h
 
