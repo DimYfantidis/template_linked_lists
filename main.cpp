@@ -13,11 +13,11 @@ using namespace std;
 int main() {
     list<string> gang;
 
-    gang.pushBack("Thanasis");
-    gang.pushBack("Varelas");
+    gang.pushFront("Varelas");
     gang.pushBack("Stavros");
     gang.pushBack("Andreas");
     gang.pushBack("Giannis");
+    gang.pushFront("Thanasis");
 
     cout << gang << "\t(" << gang.getSize() << " elements)" << endl;
 

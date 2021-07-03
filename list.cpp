@@ -114,6 +114,7 @@ void list<T>::pushFront(const T &arg) {
         head->next = temp;
         temp->prev = head;
     }
+    ++size;
 }
 
 template <typename T>
