@@ -77,6 +77,7 @@ int main() {
         cin >> keep_adding;
     } while (keep_adding);
 
+    while (cin.get() != '\n');
 
     cout << endl;
 
@@ -109,6 +110,8 @@ int main() {
     }
 
     cout << "Doubles list printed in " << (double)duration.count()/1000 << " seconds." << endl;
+
+    while (cin.get() != '\n');
 
     return 0;
 }
