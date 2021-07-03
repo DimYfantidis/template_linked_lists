@@ -11,13 +11,17 @@ using namespace std;
 #define MS_DIFF   std::chrono::duration_cast<std::chrono::milliseconds>
 #define DBL_SIZE  30000
 
-bool static inputFail (istream &input) {
+void inline static checkInput (istream &input) {
     if (input.fail()) {
         input.clear();
         input.ignore(100,'\n');
-        return true;
+        cerr << "Wrong Input" << endl;
+
+        cout << "Press Enter to exit ..." << endl;
+        while (cin.get() != '\n');
+
+        exit(1);
     }
-    return false;
 }
 
 int main() {
@@ -73,15 +77,11 @@ int main() {
     do {
         cout << "Select position to add integer: ";
         cin >> pos;
-        if (inputFail(cin)) {
-            pos = INT_MAX;
-        }
+        checkInput(cin);
 
         cout << "Value: ";
         cin >> k;
-        if (inputFail(cin)) {
-            k = INT_MAX;
-        }
+        checkInput(cin);
 
         try {
             integers.insert(pos, k);
