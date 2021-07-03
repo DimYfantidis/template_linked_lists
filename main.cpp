@@ -111,6 +111,7 @@ int main() {
 
     cout << "Doubles list printed in " << (double)duration.count()/1000 << " seconds." << endl;
 
+    cout << "Press Enter to exit ..." << endl;
     while (cin.get() != '\n');
 
     return 0;
