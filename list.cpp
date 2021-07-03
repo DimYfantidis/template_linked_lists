@@ -217,6 +217,8 @@ void list<T>::print(ostream &output, unsigned short mode) const {
     }
 }
 
+// ------------------ OPERATOR ------------------
+
 template <typename T>
 list<T> & list<T>::operator = (const list<T> &arg) {
     if (this != &arg) {
@@ -243,8 +245,28 @@ list<T> & list<T>::operator = (const list<T> &arg) {
 }
 
 template <typename T>
+list<T> & list<T>::operator += (const list<T> &arg) {
+    if (!arg.empty()) {
+        list<T> appended_list(arg);
+        tail->next = appended_list.head;
+        appended_list.head->prev = tail;
+        tail = appended_list.tail;
+        size += arg.size;
+
+        appended_list.size = 0;
+        appended_list.head = appended_list.tail = nullptr;
+    }
+}
+
+template <typename T>
 list<T> & list<T>::operator += (const T &arg) {
     pushBack(arg);
+    return *this;
+}
+
+template <typename T>
+list<T> & list<T>::operator -= (const T &arg) {
+    remove(arg);
     return *this;
 }
 
@@ -271,6 +293,13 @@ T & list<T>::operator [] (long long pos) {
         }
     }
     return scanner_node->data;
+}
+
+template <typename T>
+list<T> operator + (const list<T> &one, const list<T> &two) {
+    list<T> sum(one);
+    sum += two;
+    return sum;
 }
 
 template <typename T>

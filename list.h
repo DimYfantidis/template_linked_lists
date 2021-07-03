@@ -17,7 +17,7 @@ public:
         next = nullptr;
         prev = nullptr;
     }
-    node_l(const T &init) {
+    explicit node_l(const T &init) {
         data = init;
         next = nullptr;
         prev = nullptr;
@@ -55,12 +55,18 @@ public:
     void print(ostream &, unsigned short mode = HORIZ) const;
 
     list<T> & operator =  (const list<T> &);
+    list<T> & operator += (const list<T> &);
     list<T> & operator += (const T &);
+    list<T> & operator -= (const T &);
     T & operator [] (long long);
 };
 
 template <typename T>
+list<T> operator + (const list<T> &, const list<T> &);
+
+template <typename T>
 ostream  & operator << (ostream &, const list<T> &);
+
 
 #include "list.cpp"
 
