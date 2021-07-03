@@ -2,6 +2,7 @@
 #include <fstream>
 #include <string>
 #include <chrono>
+#include <climits>
 #include "list.h"
 
 using namespace std;
@@ -9,6 +10,15 @@ using namespace std;
 #define READ_TIME std::chrono::high_resolution_clock::now()
 #define MS_DIFF   std::chrono::duration_cast<std::chrono::milliseconds>
 #define DBL_SIZE  30000
+
+bool static inputFail (istream &input) {
+    if (input.fail()) {
+        input.clear();
+        input.ignore(100,'\n');
+        return true;
+    }
+    return false;
+}
 
 int main() {
     list<string> gang;
@@ -63,8 +73,15 @@ int main() {
     do {
         cout << "Select position to add integer: ";
         cin >> pos;
+        if (inputFail(cin)) {
+            pos = INT_MAX;
+        }
+
         cout << "Value: ";
         cin >> k;
+        if (inputFail(cin)) {
+            k = INT_MAX;
+        }
 
         try {
             integers.insert(pos, k);
