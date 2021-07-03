@@ -56,8 +56,8 @@ public:
 
     list<T> & operator =  (const list<T> &);
     list<T> & operator += (const list<T> &);
-    list<T> & operator += (const T &);
-    list<T> & operator -= (const T &);
+    inline list<T> & operator += (const T &);
+    inline list<T> & operator -= (const T &);
     T & operator [] (long long);
 };
 
