@@ -5,9 +5,9 @@
 
 // ------------------ PRIVATE ------------------
 
-
+// Horizontal printing of list: [Node(0), Node(1), ... , Node(size-1)]
 template <typename T>
-void list<T>::printHorizontally(const node_l<T> *N, ostream &output) const {
+void list<T>::printHorizontally(const node_l<T> *N, std::ostream &output) const {
     if (N == nullptr) {
         return;
     }
@@ -15,8 +15,16 @@ void list<T>::printHorizontally(const node_l<T> *N, ostream &output) const {
     printHorizontally(N->next, output);
 }
 
+/* Vertical printing of list:
+ *  --------
+ *  Node(0)
+ *  Node(1)
+ *  ...
+ *  Node(size-1)
+ *  --------
+ */
 template <typename T>
-void list<T>::printVertically(const node_l<T> *N, ostream &output) const {
+void list<T>::printVertically(const node_l<T> *N, std::ostream &output) const {
     if (N == nullptr) {
         return;
     }
@@ -145,7 +153,7 @@ void list<T>::insert(long long pos, const T &arg) {
         pushFront(arg);
     } else if (pos > 0) {
         if (pos >= size) {
-            throw (range_error("ERROR: Bad position"));
+            throw (std::range_error("ERROR: Bad position"));
         }
         scanner_node = head;
         for (i = 0; i < pos; ++i) {
@@ -159,11 +167,11 @@ void list<T>::insert(long long pos, const T &arg) {
         new_node->next = scanner_node;
         new_node->prev->next = new_node;
     } else {
-        if (abs(pos) > size) {
-            throw (range_error("ERROR: Bad position"));
+        if (std::abs(pos) > size) {
+            throw (std::range_error("ERROR: Bad position"));
         }
         scanner_node = tail;
-        for (i = size - 1; i > size - abs(pos); --i) {
+        for (i = size - 1; i > size - std::abs(pos); --i) {
             scanner_node = scanner_node->prev;
         }
         new_node = new node_l<T>(arg);
@@ -201,7 +209,7 @@ bool list<T>::empty() const {
 }
 
 template <typename T>
-void list<T>::print(ostream &output, unsigned short mode) const {
+void list<T>::print(std::ostream &output, unsigned short mode) const {
     if (mode & HORIZ) {
         output << "[";
         if (head != nullptr) {
@@ -278,18 +286,18 @@ T & list<T>::operator [] (long long pos) {
 
     if (pos >= 0) {
         if (pos >= size) {
-            throw (range_error("ERROR: Bad position"));
+            throw (std::range_error("ERROR: Bad position"));
         }
         scanner_node = head;
         for (i = 0; i < pos; ++i) {
             scanner_node = scanner_node->next;
         }
     } else {
-        if (abs(pos) > size) {
-            throw (range_error("ERROR: Bad position"));
+        if (std::abs(pos) > size) {
+            throw (std::range_error("ERROR: Bad position"));
         }
         scanner_node = tail;
-        for (i = size - 1; i > size - abs(pos); --i) {
+        for (i = size - 1; i > size - std::abs(pos); --i) {
             scanner_node = scanner_node->prev;
         }
     }
@@ -304,7 +312,7 @@ list<T> operator + (const list<T> &one, const list<T> &two) {
 }
 
 template <typename T>
-ostream & operator << (ostream &output, const list<T> &arg) {
+std::ostream & operator << (std::ostream &output, const list<T> &arg) {
     arg.print(output);
     return output;
 }
